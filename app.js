@@ -41,6 +41,17 @@ skipButtons.forEach(button => button.addEventListener('click', (event) => {
     video.currentTime += parseFloat(event.currentTarget.dataset.skip);
 }));
 
+//Key Sequence Detection - ArrawLeft and ArrowRight
+window.addEventListener('keyup', (event) => {
+    if (event.key === "ArrowRight") {
+        video.currentTime += 25;
+    } else if (event.key === "ArrowLeft"){
+        video.currentTime -= 10;
+    } else if (event.which === 32) { 
+        togglePlay();
+    }
+});
+
 ranges.forEach(range => range.addEventListener('change', (event) => {
     video[event.currentTarget.name] = event.currentTarget.value;
 }));
